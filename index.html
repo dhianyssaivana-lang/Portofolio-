@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+
+<html lang="id" class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Novelku - Rekomendasi Novel Indonesia Terbaik</title>
+
+    
+
+    <!-- SEO Meta Tags -->
+
+    <meta name="description" content="Temukan rekomendasi novel Indonesia terbaik dari berbagai genre. Baca sinopsis, kenali penulisnya, dan temukan bacaan favoritmu berikutnya di Novelku.">
+
+    <meta name="keywords" content="novel indonesia, rekomendasi novel, buku indonesia, sastra, novel terbaik, sinopsis novel">
+
+    <meta name="author" content="Novelku">
+
+    <!-- Tailwind CSS -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    
+
+    <!-- Google Fonts: Inter -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Analytics Integration (Placeholder) -->
+
+    <!-- Ganti dengan snippet Google Analytics atau Tag Manager Anda -->
+
+    <script>
+
+        // console.log("Analytics snippet would go here.");
+
+    </script>
+
+    
+
+    <style>
+
+        /* Menggunakan font Inter sebagai default */
+
+        body {
+
+            font-family: 'Inter', sans-serif;
+
+        }
+
+        /* Styling untuk scrollbar minimalis */
+
+        ::-webkit-scrollbar {
+
+            width: 8px;
+
+        }
+
+        ::-webkit-scrollbar-track {
+
+            background: #f1f1f1;
+
+        }
+
+        .dark ::-webkit-scrollbar-track {
+
+            background: #2d3748;
+
+        }
+
+        ::-webkit-scrollbar-thumb {
+
+            background: #888;
+
+            border-radius: 10px;
+
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+
+            background: #555;
+
+        }
+
+        /* Animasi scroll fade-in */
+
+        .scroll-animate {
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+        }
+
+        .scroll-animate.is-visible {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+    </style>
+
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+
+    <!-- ===== Header / Navbar ===== -->
+
+    <header id="header" class="sticky top-0 z-50 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-sm transition-colors duration-300">
+
+        <div class="container mx-auto px-4">
+
+            <div class="flex items-center justify-between h-16">
+
+                <!-- Logo -->
+
+                <a href="#" class="text-2xl font-bold text-gray-900 dark:text-white">Novel<span class="text-indigo-600">ku</span></a>
+
+                
+
+                <!-- Navigasi Utama (Desktop) -->
+
+                <nav class="hidden md:flex items-center space-x-6">
+
+                    <a href="#hero" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Beranda</a>
+
+                    <a href="#rekomendasi" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Genre</a>
+
+                    <a href="#inspirasi" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Penulis</a>
+
+                    <a href="#kontak" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Kontak</a>
+
+                </nav>
+
+                
+
+                <!-- Aksi (Search, Language, Dark Mode) -->
+
+                <div class="flex items-center space-x-4">
+
+                    <button id="search-bar-toggle" aria-label="Buka pencarian">
+
+                        <i data-lucide="search" class="w-5 h-5 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400"></i>
+
+                    </button>
+
+                    <!-- Language Switcher -->
+
+                    <div class="relative">
+
+                        <button id="lang-switcher" class="flex items-center space-x-1 text-sm font-medium text-gray-600 dark:text-gray-300">
+
+                            <span>ID</span>
+
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+
+                        </button>
+
+                    </div>
+
+                    <!-- Dark/Light Mode Toggle -->
+
+                    <button id="theme-toggle" aria-label="Ganti mode gelap/terang">
+
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+
+                        <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+
+                    </button>
+
+                    <!-- Tombol Menu Mobile -->
+
+                    <button id="mobile-menu-button" class="md:hidden" aria-label="Buka menu">
+
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Menu Mobile -->
+
+        <div id="mobile-menu" class="hidden md:hidden px-4 pb-4">
+
+            <a href="#hero" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-600">Beranda</a>
+
+            <a href="#rekomendasi" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-600">Genre</a>
+
+            <a href="#inspirasi" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-600">Penulis</a>
+
+            <a href="#kontak" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-600">Kontak</a>
+
+        </div>
+
+        <!-- Search Bar -->
+
+        <div id="search-bar" class="hidden py-2 px-4 bg-gray-100 dark:bg-gray-800">
+
+            <div class="relative">
+
+                <input type="text" placeholder="Cari novel atau penulis..." class="w-full pl-10 pr-4 py-2 rounded-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+
+                <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main class="container mx-auto px-4 pt-8">
+
+        <!-- ===== Hero Section ===== -->
+
+        <section id="hero" class="relative text-center py-20 md:py-32 overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-800 scroll-animate">
+
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-100 dark:from-gray-800 to-transparent z-10"></div>
+
+            <div class="relative z-20">
+
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-4">Temukan Dunia Baru <br> dalam Setiap Halaman.</h1>
+
+                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">Jelajahi rekomendasi novel Indonesia terbaik dari berbagai genre yang telah kami kurasi khusus untuk Anda.</p>
+
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+
+                    <a href="#rekomendasi" class="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-transform transform hover:scale-105">
+
+                        Lihat Rekomendasi
+
+                    </a>
+
+                    <button id="video-popup-button" class="flex items-center gap-2 px-8 py-3 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-semibold rounded-lg shadow-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-transform transform hover:scale-105">
+
+                        <i data-lucide="play-circle" class="w-5 h-5 text-indigo-600"></i>
+
+                        Tonton Video Pengantar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ===== Counter / Statistik ===== -->
+
+        <section id="stats" class="py-16 scroll-animate">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+
+                    <h3 class="text-4xl font-bold text-indigo-600 dark:text-indigo-400">100+</h3>
+
+                    <p class="text-gray-500 dark:text-gray-400 mt-2">Novel Direkomendasikan</p>
+
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+
+                    <h3 class="text-4xl font-bold text-indigo-600 dark:text-indigo-400">50+</h3>
+
+                    <p class="text-gray-500 dark:text-gray-400 mt-2">Penulis Berbakat</p>
+
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+
+                    <h3 class="text-4xl font-bold text-indigo-600 dark:text-indigo-400">10+</h3>
+
+                    <p class="text-gray-500 dark:text-gray-400 mt-2">Genre Pilihan</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        
+
+        <!-- ===== Daftar Rekomendasi Novel ===== -->
+
+        <section id="rekomendasi" class="py-16">
+
+            <div class="text-center mb-12 scroll-animate">
+
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Rekomendasi Pilihan</h2>
+
+                <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">Novel-novel yang akan membawa Anda ke petualangan tak terlupakan.</p>
+
+            </div>
+
+            
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+                <!-- Novel Card 1 -->
+
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group scroll-animate">
+
+                    <div class="relative">
+
+                        <img src="https://placehold.co/400x600/6366f1/ffffff?text=Laskar+Pelangi" alt="Cover Laskar Pelangi" class="w-full h-72 object-cover cursor-pointer group-hover:opacity-75 transition-opacity" onclick="openNovelModal(this)">
+
+                        <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+
+                            <i data-lucide="book-open" class="w-12 h-12 text-white"></i>
+
+                        </div>
+
+                    </div>
+
+                    <div class="p-5">
+
+                        <h3 class="text-xl font-bold mb-1">Laskar Pelangi</h3>
+
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Andrea Hirata</p>
+
+                        <div class="flex items-center justify-between">
+
+                            <button class="add-to-list-btn text-sm font-medium text-indigo-600 hover:text-indigo-500">Tambah ke Daftar</button>
+
+                            <button class="share-btn flex items-center gap-1 text-gray-500 hover:text-gray-800 dark:hover:text-white">
+
+                                <i data-lucide="share-2" class="w-4 h-4"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="novel-data hidden">
+
+                        <div class="sinopsis">Kisah inspiratif tentang perjuangan 10 anak dari keluarga miskin yang bersekolah di sebuah sekolah Muhammadiyah di Belitung yang penuh dengan keterbatasan.</div>
+
+                        <div class="cover-url">https://placehold.co/400x600/6366f1/ffffff?text=Laskar+Pelangi</div>
+
+                    </div>
+
+                </div>
+
+                <!-- Novel Card 2 -->
+
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group scroll-animate" style="transition-delay: 100ms;">
+
+                    <div class="relative">
+
+                        <img src="https://placehold.co/400x600/10b981/ffffff?text=Bumi+Manusia" alt="Cover Bumi Manusia" class="w-full h-72 object-cover cursor-pointer group-hover:opacity-75 transition-opacity" onclick="openNovelModal(this)">
+
+                         <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+
+                            <i data-lucide="book-open" class="w-12 h-12 text-white"></i>
+
+                        </div>
+
+                    </div>
+
+                    <div class="p-5">
+
+                        <h3 class="text-xl font-bold mb-1">Bumi Manusia</h3>
+
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Pramoedya Ananta Toer</p>
+
+                        <div class="flex items-center justify-between">
+
+                            <button class="add-to-list-btn text-sm font-medium text-indigo-600 hover:text-indigo-500">Tambah ke Daftar</button>
+
+                            <button class="share-btn flex items-center gap-1 text-gray-500 hover:text-gray-800 dark:hover:text-white">
+
+                                <i data-lucide="share-2" class="w-4 h-4"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="novel-data hidden">
+
+                        <div class="sinopsis">Mengisahkan perjalanan Minke, seorang pribumi cerdas di era kolonial, dalam menemukan identitasnya di tengah pergulatan cinta, kekuasaan, dan diskriminasi.</div>
+
+                        <div class="cover-url">https://placehold.co/400x600/10b981/ffffff?text=Bumi+Manusia</div>
+
+                    </div>
+
+                </div>
+
+                <!-- Novel Card 3 -->
+
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group scroll-animate" style="transition-delay: 200ms;">
+
+                     <div class="relative">
+
+                        <img src="https://placehold.co/400x600/f59e0b/ffffff?text=Cantik+Itu+Luka" alt="Cover Cantik Itu Luka" class="w-full h-72 object-cover cursor-pointer group-hover:opacity-75 transition-opacity" onclick="openNovelModal(this)">
+
+                         <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+
+                            <i data-lucide="book-open" class="w-12 h-12 text-white"></i>
+
+                        </div>
+
+                    </div>
+
+                    <div class="p-5">
+
+                        <h3 class="text-xl font-bold mb-1">Cantik Itu Luka</h3>
+
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Eka Kurniawan</p>
+
+                         <div class="flex items-center justify-between">
+
+                            <button class="add-to-list-btn text-sm font-medium text-indigo-600 hover:text-indigo-500">Tambah ke Daftar</button>
+
+                            <button class="share-btn flex items-center gap-1 text-gray-500 hover:text-gray-800 dark:hover:text-white">
+
+                                <i data-lucide="share-2" class="w-4 h-4"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="novel-data hidden">
+
+                        <div class="sinopsis">Sebuah epik keluarga yang membentang dari masa kolonial hingga kemerdekaan, memadukan sejarah, mitos, dan tragedi dengan gaya realisme magis yang memukau.</div>
+
+                        <div class="cover-url">https://placehold.co/400x600/f59e0b/ffffff?text=Cantik+Itu+Luka</div>
+
+                    </div>
+
+                </div>
+
+                <!-- Novel Card 4 -->
+
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group scroll-animate" style="transition-delay: 300ms;">
+
+                    <div class="relative">
+
+                        <img src="https://placehold.co/400x600/ef4444/ffffff?text=Negeri+5+Menara" alt="Cover Negeri 5 Menara" class="w-full h-72 object-cover cursor-pointer group-hover:opacity-75 transition-opacity" onclick="openNovelModal(this)">
+
+                        <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+
+                            <i data-lucide="book-open" class="w-12 h-12 text-white"></i>
+
+                        </div>
+
+                    </div>
+
+                    <div class="p-5">
+
+                        <h3 class="text-xl font-bold mb-1">Negeri 5 Menara</h3>
+
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Ahmad Fuadi</p>
+
+                         <div class="flex items-center justify-between">
+
+                            <button class="add-to-list-btn text-sm font-medium text-indigo-600 hover:text-indigo-500">Tambah ke Daftar</button>
+
+                            <button class="share-btn flex items-center gap-1 text-gray-500 hover:text-gray-800 dark:hover:text-white">
+
+                                <i data-lucide="share-2" class="w-4 h-4"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="novel-data hidden">
+
+                        <div class="sinopsis">Kisah persahabatan enam santri dari berbagai daerah di Pondok Madani, yang dipersatukan oleh mimpi dan mantra sakti 'Man Jadda Wajada' (Siapa yang bersungguh-sungguh akan berhasil).</div>
+
+                        <div class="cover-url">https://placehold.co/400x600/ef4444/ffffff?text=Negeri+5+Menara</div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ===== Inspirasi Penulis ===== -->
+
+        <section id="inspirasi" class="py-16 bg-gray-100 dark:bg-gray-800 rounded-2xl scroll-animate">
+
+            <div class="text-center mb-12">
+
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Inspirasi di Balik Karya</h2>
+
+                <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">Mengenal lebih dekat proses kreatif para penulis hebat Indonesia.</p>
+
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-12 max-w-4xl mx-auto">
+
+                <div class="md:w-1/3">
+
+                    <img src="https://placehold.co/400x400/3b82f6/ffffff?text=Penulis" alt="Foto Andrea Hirata" class="rounded-full shadow-2xl w-48 h-48 md:w-64 md:h-64 object-cover mx-auto">
+
+                </div>
+
+                <div class="md:w-2/3 text-center md:text-left">
+
+                    <p class="text-xl italic text-gray-700 dark:text-gray-300">"Menulislah setiap hari, jangan pedulikan bagus atau tidak. Karena dari seratus halaman tulisan jelek, pasti ada satu kalimat yang bagus."</p>
+
+                    <h4 class="text-xl font-bold mt-6 text-gray-900 dark:text-white">Andrea Hirata</h4>
+
+                    <p class="text-gray-500 dark:text-gray-400">Penulis Novel Laskar Pelangi</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ===== Contact Form & Map ===== -->
+
+        <section id="kontak" class="py-16">
+
+            <div class="text-center mb-12 scroll-animate">
+
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Hubungi Kami</h2>
+
+                <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">Punya pertanyaan, saran, atau rekomendasi novel? Sampaikan kepada kami.</p>
+
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+
+                <!-- Contact Form -->
+
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg scroll-animate">
+
+                    <form action="#" method="POST">
+
+                        <div class="mb-4">
+
+                            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nama Anda</label>
+
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Pesan</g_text>
+
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500" required></textarea>
+
+                        </div>
+
+                        <button type="submit" class="w-full px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors">Kirim Pesan</button>
+
+                    </form>
+
+                </div>
+
+                <!-- Map Integration -->
+
+                <div class="scroll-animate" style="transition-delay: 100ms;">
+
+                     <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg">
+
+                        <div class="aspect-w-16 aspect-h-9">
+
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.471690550977!2d106.82496417500095!3d-6.20150299378619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f43a9d18c213%3A0x7e524691456c602a!2sNational%20Monument!5e0!3m2!1sen!2sid!4f1728989901309!5m2!1sen!2sid" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg"></iframe>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mt-6 text-gray-600 dark:text-gray-400 text-sm">
+
+                        <p class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-indigo-500"></i> Jl. Sastra No. 123, Jakarta, Indonesia</p>
+
+                        <p class="flex items-center gap-2 mt-2"><i data-lucide="phone" class="w-4 h-4 text-indigo-500"></i> +62 21 1234 5678</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    
+
+    <!-- ===== Footer ===== -->
+
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-16">
+
+        <div class="container mx-auto px-4 py-12">
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+                <!-- About -->
+
+                <div>
+
+                    <h3 class="text-xl font-bold mb-2">Novel<span class="text-indigo-600">ku</span></h3>
+
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Menemukan dan membagikan kekayaan sastra Indonesia untuk Anda.</p>
+
+                    <div class="flex space-x-4 mt-4">
+
+                        <a href="#" class="text-gray-500 hover:text-indigo-600"><i data-lucide="facebook"></i></a>
+
+                        <a href="#" class="text-gray-500 hover:text-indigo-600"><i data-lucide="twitter"></i></a>
+
+                        <a href="#" class="text-gray-500 hover:text-indigo-600"><i data-lucide="instagram"></i></a>
+
+                    </div>
+
+                </div>
+
+                <!-- Quick Links -->
+
+                <div>
+
+                    <h4 class="font-semibold mb-3">Tautan Cepat</h4>
+
+                    <ul class="space-y-2 text-sm">
+
+                        <li><a href="#rekomendasi" class="text-gray-500 dark:text-gray-400 hover:text-indigo-600">Rekomendasi</a></li>
+
+                        <li><a href="#inspirasi" class="text-gray-500 dark:text-gray-400 hover:text-indigo-600">Penulis</a></li>
+
+                        <li><a href="#kontak" class="text-gray-500 dark:text-gray-400 hover:text-indigo-600">Kontak</a></li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Legal -->
+
+                 <div>
+
+                    <h4 class="font-semibold mb-3">Legal</h4>
+
+                    <ul class="space-y-2 text-sm">
+
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-indigo-600">Kebijakan Privasi</a></li>
+
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-indigo-600">Syarat & Ketentuan</a></li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="mt-12 border-t border-gray-200 dark:border-gray-700 pt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+
+                <p>&copy; 2025 Novelku. All Rights Reserved.</p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    
+
+    <!-- ===== Sidebar / Floating Elements ===== -->
+
+    <!-- Chatbot / Live Chat -->
+
+    <div id="chatbot-container" class="fixed bottom-5 right-5 z-50">
+
+        <button id="chatbot-toggle" class="w-14 h-14 bg-indigo-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-indigo-700 transition-transform transform hover:scale-110">
+
+            <i data-lucide="message-square" class="w-7 h-7"></i>
+
+        </button>
+
+        <div id="chatbot-window" class="hidden absolute bottom-20 right-0 w-80 bg-white dark:bg-gray-800 rounded-lg shadow-2xl border dark:border-gray-700">
+
+            <div class="p-3 bg-indigo-600 text-white font-semibold rounded-t-lg">Ada yang bisa dibantu?</div>
+
+            <div class="p-4 h-48 overflow-y-auto text-sm">
+
+                <p class="bg-gray-100 dark:bg-gray-700 p-2 rounded-lg">Selamat datang di Novelku! Cari novel apa hari ini?</p>
+
+            </div>
+
+            <div class="p-2 border-t dark:border-gray-700">
+
+                <input type="text" placeholder="Ketik pesan..." class="w-full text-sm p-2 rounded bg-gray-100 dark:bg-gray-700 border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    
+
+    <!-- Modal Sinopsis Novel -->
+
+    <div id="novel-modal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden items-center justify-center p-4">
+
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative animate-fade-in-up">
+
+            <button onclick="closeModal('novel-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:hover:text-white">
+
+                <i data-lucide="x" class="w-6 h-6"></i>
+
+            </button>
+
+            <div class="grid md:grid-cols-3 gap-6 p-6">
+
+                <div class="md:col-span-1">
+
+                    <img id="modal-novel-cover" src="" alt="Cover Novel" class="w-full rounded-lg shadow-md">
+
+                </div>
+
+                <div class="md:col-span-2">
+
+                    <h2 id="modal-novel-title" class="text-3xl font-bold mb-1"></h2>
+
+                    <p id="modal-novel-author" class="text-gray-500 dark:text-gray-400 mb-4"></p>
+
+                    <h4 class="font-semibold mb-2">Sinopsis</h4>
+
+                    <p id="modal-novel-synopsis" class="text-gray-600 dark:text-gray-300"></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    
+
+    <!-- Modal Video Popup -->
+
+    <div id="video-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden items-center justify-center p-4">
+
+         <div class="bg-black rounded-lg shadow-2xl w-full max-w-3xl relative aspect-video">
+
+             <button onclick="closeModal('video-modal')" class="absolute -top-10 right-0 text-white hover:opacity-75">
+
+                <i data-lucide="x" class="w-8 h-8"></i>
+
+            </button>
+
+            <iframe id="video-iframe" class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+
+    <script>
+
+        // Inisialisasi Lucide Icons
+
+        lucide.createIcons();
+
+        // Dark/Light Mode Toggle
+
+        const themeToggle = document.getElementById('theme-toggle');
+
+        const html = document.documentElement;
+
+        // Cek tema dari localStorage atau preferensi sistem
+
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+
+            html.classList.add('dark');
+
+        } else {
+
+            html.classList.remove('dark');
+
+        }
+
+        themeToggle.addEventListener('click', () => {
+
+            html.classList.toggle('dark');
+
+            if (html.classList.contains('dark')) {
+
+                localStorage.setItem('theme', 'dark');
+
+            } else {
+
+                localStorage.setItem('theme', 'light');
+
+            }
+
+        });
+
+        
+
+        // Mobile Menu Toggle
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+
+            mobileMenu.classList.toggle('hidden');
+
+        });
+
+        // Search Bar Toggle
+
+        const searchBarToggle = document.getElementById('search-bar-toggle');
+
+        const searchBar = document.getElementById('search-bar');
+
+        searchBarToggle.addEventListener('click', () => {
+
+            searchBar.classList.toggle('hidden');
+
+        });
+
+        
+
+        // Chatbot Toggle
+
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+
+        const chatbotWindow = document.getElementById('chatbot-window');
+
+        chatbotToggle.addEventListener('click', () => {
+
+            chatbotWindow.classList.toggle('hidden');
+
+        });
+
+        // "Tambah ke Daftar Bacaan" Button
+
+        document.querySelectorAll('.add-to-list-btn').forEach(button => {
+
+            button.addEventListener('click', () => {
+
+                button.textContent = '✔ Ditambahkan';
+
+                button.disabled = true;
+
+                button.classList.add('text-green-600');
+
+            });
+
+        });
+
+        // Modal Logic
+
+        const novelModal = document.getElementById('novel-modal');
+
+        const videoModal = document.getElementById('video-modal');
+
+        const videoIframe = document.getElementById('video-iframe');
+
+        const originalVideoSrc = videoIframe.src;
+
+        function openModal(id) {
+
+            const modal = document.getElementById(id);
+
+            if(modal) {
+
+                modal.classList.remove('hidden');
+
+                modal.classList.add('flex');
+
+            }
+
+        }
+
+        
+
+        function closeModal(id) {
+
+            const modal = document.getElementById(id);
+
+            if(modal) {
+
+                modal.classList.remove('flex');
+
+                modal.classList.add('hidden');
+
+                // Hentikan video YouTube saat modal ditutup
+
+                if (id === 'video-modal') {
+
+                    videoIframe.src = originalVideoSrc;
+
+                }
+
+            }
+
+        }
+
+        
+
+        // Buka Video Popup
+
+        document.getElementById('video-popup-button').addEventListener('click', () => openModal('video-modal'));
+
+        
+
+        // Buka & Isi data Modal Sinopsis
+
+        function openNovelModal(element) {
+
+            const card = element.closest('.group');
+
+            const dataContainer = card.querySelector('.novel-data');
+
+            
+
+            const title = card.querySelector('h3').textContent;
+
+            const author = card.querySelector('p').textContent;
+
+            const synopsis = dataContainer.querySelector('.sinopsis').textContent;
+
+            const coverUrl = dataContainer.querySelector('.cover-url').textContent;
+
+            document.getElementById('modal-novel-title').textContent = title;
+
+            document.getElementById('modal-novel-author').textContent = author;
+
+            document.getElementById('modal-novel-synopsis').textContent = synopsis;
+
+            document.getElementById('modal-novel-cover').src = coverUrl;
+
+            
+
+            openModal('novel-modal');
+
+        }
+
+        
+
+        // Tutup modal saat klik di luar area kontennya
+
+        window.addEventListener('click', (event) => {
+
+            if (event.target === novelModal) closeModal('novel-modal');
+
+            if (event.target === videoModal) closeModal('video-modal');
+
+        });
+
+        // Scroll Animation Logic
+
+        const scrollAnimateElements = document.querySelectorAll('.scroll-animate');
+
+        
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add('is-visible');
+
+                }
+
+            });
+
+        }, {
+
+            threshold: 0.1
+
+        });
+
+        scrollAnimateElements.forEach(el => {
+
+            observer.observe(el);
+
+        });
+
+    </script>
+
+</body>
+
+</html>
+
