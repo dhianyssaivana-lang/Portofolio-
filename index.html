@@ -1,1024 +1,630 @@
 <!DOCTYPE html>
-
-<html lang="id" class="scroll-smooth">
-
+<html lang="id">
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Novelku - Rekomendasi Novel Indonesia Terbaik</title>
-
-    
-
-    <!-- SEO Meta Tags -->
-
-    <meta name="description" content="Temukan rekomendasi novel Indonesia terbaik dari berbagai genre. Baca sinopsis, kenali penulisnya, dan temukan bacaan favoritmu berikutnya di Novelku.">
-
-    <meta name="keywords" content="novel indonesia, rekomendasi novel, buku indonesia, sastra, novel terbaik, sinopsis novel">
-
-    <meta name="author" content="Novelku">
-
-    <!-- Tailwind CSS -->
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    
-
-    <!-- Google Fonts: Inter -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+    <title>Dhia Nyssa Ivana | Portofolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <!-- Lucide Icons -->
-
     <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Analytics Integration (Placeholder) -->
-
-    <!-- Ganti dengan snippet Google Analytics atau Tag Manager Anda -->
-
-    <script>
-
-        // console.log("Analytics snippet would go here.");
-
-    </script>
-
-    
-
     <style>
+        :root {
+            --primary: #4a6670; /* Slate Blueish - Calm psychology vibe */
+            --secondary: #e2d1c3; /* Nude/Earth tone */
+            --accent: #8e7f7d;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --bg-light: #fdfbf9;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
 
-        /* Menggunakan font Inter sebagai default */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
         body {
-
-            font-family: 'Inter', sans-serif;
-
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Styling untuk scrollbar minimalis */
-
-        ::-webkit-scrollbar {
-
-            width: 8px;
-
+        h1, h2, h3, .brand-name {
+            font-family: 'Playfair Display', serif;
         }
 
-        ::-webkit-scrollbar-track {
-
-            background: #f1f1f1;
-
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(253, 251, 249, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .dark ::-webkit-scrollbar-track {
-
-            background: #2d3748;
-
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
         }
 
-        ::-webkit-scrollbar-thumb {
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-            background: #888;
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
 
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Hero Section --- */
+        section {
+            padding: 100px 10%;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .tagline {
+            display: inline-block;
+            background: var(--secondary);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(74, 102, 112, 0.3);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 80%;
+            max-width: 400px;
+            border-radius: 30px;
+            box-shadow: 20px 20px 0 var(--secondary);
+            object-fit: cover;
+        }
+
+        /* --- Section Titles --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        /* --- About --- */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .value-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+
+        /* --- Skills --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .skill-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* --- Portfolio --- */
+        .portfolio-card {
+            background: var(--white);
+            border-radius: 25px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .portfolio-img {
+            flex: 1;
+            min-height: 400px;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('https://images.unsplash.com/photo-1544717297-fa95b3ee91f3?auto=format&fit=crop&q=80&w=1000') center/cover;
+        }
+
+        .portfolio-info {
+            flex: 1.2;
+            padding: 3rem;
+        }
+
+        .portfolio-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* --- Organization --- */
+        .org-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .org-item {
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .org-item:hover {
+            background: var(--white);
+            padding-left: 2rem;
             border-radius: 10px;
-
         }
 
-        ::-webkit-scrollbar-thumb:hover {
-
-            background: #555;
-
+        .org-role {
+            font-weight: 600;
+            color: var(--primary);
         }
 
-        /* Animasi scroll fade-in */
-
-        .scroll-animate {
-
-            opacity: 0;
-
-            transform: translateY(30px);
-
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-
+        .org-year {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            background: var(--secondary);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
         }
 
-        .scroll-animate.is-visible {
+        /* --- Contact --- */
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
 
+        .contact-method {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            width: 250px;
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        .contact-method:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .contact-method i {
+            margin-bottom: 1rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #2d3436;
+            color: var(--white);
+            padding: 4rem 10% 2rem;
+            text-align: center;
+        }
+
+        .footer-socials {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .footer-socials a {
+            color: var(--white);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .footer-socials a:hover {
             opacity: 1;
-
-            transform: translateY(0);
-
+            transform: scale(1.2);
         }
 
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.5;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                height: auto;
+                padding-top: 150px;
+            }
+            .hero-content p {
+                margin: 0 auto 2rem;
+            }
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+            .portfolio-card {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+            .nav-links {
+                display: none; /* For simplicity in single file */
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            section {
+                padding: 60px 5%;
+            }
+        }
     </style>
-
 </head>
+<body>
 
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <!-- 1. Header & Navigasi -->
+    <nav>
+        <a href="#" class="brand-name">Dhia.</a>
+        <ul class="nav-links">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skills">Keahlian</a></li>
+            <li><a href="#portfolio">Portofolio</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
 
-    <!-- ===== Header / Navbar ===== -->
+    <!-- 2. Beranda (Home) -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="tagline">Human mind learner.</span>
+            <h1>Halo, Saya <br><span style="color: var(--primary);">Dhia Nyssa Ivana</span></h1>
+            <p>Dhia - selamat datang di ruang eksplorasi psikologi dan perjalanan diri saya.</p>
+            <a href="#portfolio" class="cta-btn">
+                Lihat Portofolio <i data-lucide="arrow-right"></i>
+            </a>
+        </div>
+        <div class="hero-image">
+            <img src="https://raw.githubusercontent.com/dhianyssaivana-lang/Portofolio-/refs/heads/main/1765930152909.jpg" alt="Foto Dhia">
+        </div>
+    </section>
 
-    <header id="header" class="sticky top-0 z-50 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-sm transition-colors duration-300">
-
-        <div class="container mx-auto px-4">
-
-            <div class="flex items-center justify-between h-16">
-
-                <!-- Logo -->
-
-                <a href="#" class="text-2xl font-bold text-gray-900 dark:text-white">Novel<span class="text-indigo-600">ku</span></a>
-
+    <!-- 3. Tentang Saya (About) -->
+    <section id="about">
+        <div class="section-header">
+            <h2>Tentang Saya</h2>
+        </div>
+        <div class="about-container">
+            <div class="about-text">
+                <h3>Latar Belakang</h3>
+                <p>Saya adalah seorang individu yang lahir di Pekanbaru pada tanggal 24 Juli 2008. Sejak kecil, saya tumbuh dan berkembang di lingkungan yang memberikan banyak pengalaman serta pembelajaran berharga dalam membentuk kepribadian saya.</p>
+                <p>Saat ini saya sedang menempuh pendidikan di SMAN 1 Subang (Kelas 12). Ketertarikan mendalam saya terhadap psikologi mendorong saya untuk terus memahami potensi diri serta perilaku manusia secara lebih manusiawi.</p>
                 
-
-                <!-- Navigasi Utama (Desktop) -->
-
-                <nav class="hidden md:flex items-center space-x-6">
-
-                    <a href="#hero" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Beranda</a>
-
-                    <a href="#rekomendasi" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Genre</a>
-
-                    <a href="#inspirasi" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Penulis</a>
-
-                    <a href="#kontak" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Kontak</a>
-
-                </nav>
-
-                
-
-                <!-- Aksi (Search, Language, Dark Mode) -->
-
-                <div class="flex items-center space-x-4">
-
-                    <button id="search-bar-toggle" aria-label="Buka pencarian">
-
-                        <i data-lucide="search" class="w-5 h-5 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400"></i>
-
-                    </button>
-
-                    <!-- Language Switcher -->
-
-                    <div class="relative">
-
-                        <button id="lang-switcher" class="flex items-center space-x-1 text-sm font-medium text-gray-600 dark:text-gray-300">
-
-                            <span>ID</span>
-
-                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
-
-                        </button>
-
+                <div class="values-grid">
+                    <div class="value-card">
+                        <h4>Minat</h4>
+                        <p>Memahami perilaku, emosi, dan cara berpikir manusia di balik setiap keputusan.</p>
                     </div>
-
-                    <!-- Dark/Light Mode Toggle -->
-
-                    <button id="theme-toggle" aria-label="Ganti mode gelap/terang">
-
-                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
-
-                        <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
-
-                    </button>
-
-                    <!-- Tombol Menu Mobile -->
-
-                    <button id="mobile-menu-button" class="md:hidden" aria-label="Buka menu">
-
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-
-                    </button>
-
+                    <div class="value-card">
+                        <h4>Tujuan</h4>
+                        <p>Menjadi psikolog profesional yang bermanfaat bagi masyarakat luas.</p>
+                    </div>
                 </div>
-
             </div>
-
+            <div class="about-text">
+                <h3>Nilai Pribadi</h3>
+                <p>Saya menjunjung tinggi <strong>tanggung jawab</strong>, <strong>ketekunan</strong>, dan <strong>rasa peduli</strong> terhadap sesama. Komitmen saya adalah terus mengasah kemampuan akademik dan soft skill untuk mendukung impian saya di bidang psikologi.</p>
+                <div style="background: var(--secondary); padding: 2rem; border-radius: 20px; margin-top: 1rem;">
+                    <p style="font-style: italic; color: var(--primary); font-weight: 600; margin-bottom: 0;">
+                        "Memahami manusia bukan hanya tentang teori, tapi tentang empati dan sudut pandang yang beragam."
+                    </p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Menu Mobile -->
-
-        <div id="mobile-menu" class="hidden md:hidden px-4 pb-4">
-
-            <a href="#hero" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-600">Beranda</a>
-
-            <a href="#rekomendasi" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-600">Genre</a>
-
-            <a href="#inspirasi" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-600">Penulis</a>
-
-            <a href="#kontak" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-600">Kontak</a>
-
+    <!-- 4. Keahlian (Skills) -->
+    <section id="skills" style="background: #f4f1ee;">
+        <div class="section-header">
+            <h2>Keahlian</h2>
         </div>
-
-        <!-- Search Bar -->
-
-        <div id="search-bar" class="hidden py-2 px-4 bg-gray-100 dark:bg-gray-800">
-
-            <div class="relative">
-
-                <input type="text" placeholder="Cari novel atau penulis..." class="w-full pl-10 pr-4 py-2 rounded-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-
-                <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
-
+        <div class="skills-grid">
+            <div class="skill-category">
+                <i data-lucide="brain" style="color: var(--primary); width: 40px; height: 40px;"></i>
+                <h3 style="margin-top: 1rem;">Hard Skills</h3>
+                <ul class="skill-list">
+                    <li>Pemahaman Dasar Sifat Manusia</li>
+                    <li>Analisis Perilaku Dasar</li>
+                    <li>Observasi Psikologis</li>
+                </ul>
             </div>
-
+            <div class="skill-category">
+                <i data-lucide="users" style="color: var(--primary); width: 40px; height: 40px;"></i>
+                <h3 style="margin-top: 1rem;">Soft Skills</h3>
+                <ul class="skill-list">
+                    <li>Ketelitian & Disiplin</li>
+                    <li>Komunikasi Interpersonal</li>
+                    <li>Kerja Sama Tim</li>
+                    <li>Empati & Kepedulian</li>
+                    <li>Tanggung Jawab Tinggi</li>
+                </ul>
+            </div>
         </div>
+    </section>
 
-    </header>
-
-    <main class="container mx-auto px-4 pt-8">
-
-        <!-- ===== Hero Section ===== -->
-
-        <section id="hero" class="relative text-center py-20 md:py-32 overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-800 scroll-animate">
-
-            <div class="absolute inset-0 bg-gradient-to-t from-gray-100 dark:from-gray-800 to-transparent z-10"></div>
-
-            <div class="relative z-20">
-
-                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-4">Temukan Dunia Baru <br> dalam Setiap Halaman.</h1>
-
-                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">Jelajahi rekomendasi novel Indonesia terbaik dari berbagai genre yang telah kami kurasi khusus untuk Anda.</p>
-
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-
-                    <a href="#rekomendasi" class="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-transform transform hover:scale-105">
-
-                        Lihat Rekomendasi
-
-                    </a>
-
-                    <button id="video-popup-button" class="flex items-center gap-2 px-8 py-3 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-semibold rounded-lg shadow-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-transform transform hover:scale-105">
-
-                        <i data-lucide="play-circle" class="w-5 h-5 text-indigo-600"></i>
-
-                        Tonton Video Pengantar
-
-                    </button>
-
-                </div>
-
+    <!-- 5. Portofolio -->
+    <section id="portfolio">
+        <div class="section-header">
+            <h2>Portofolio</h2>
+        </div>
+        <div class="portfolio-card">
+            <div class="portfolio-img">
+                <!-- Background image set in CSS -->
             </div>
-
-        </section>
-
-        <!-- ===== Counter / Statistik ===== -->
-
-        <section id="stats" class="py-16 scroll-animate">
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-
-                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
-
-                    <h3 class="text-4xl font-bold text-indigo-600 dark:text-indigo-400">100+</h3>
-
-                    <p class="text-gray-500 dark:text-gray-400 mt-2">Novel Direkomendasikan</p>
-
+            <div class="portfolio-info">
+                <span style="color: var(--accent); font-weight: 700; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">Proyek Unggulan</span>
+                <h3>Jejak Diri</h3>
+                <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text-light);">
+                    Saya adalah anak pertama dari dua bersaudara yang memiliki rasa ingin tahu yang kuat tentang alasan di balik cara seseorang berpikir, merasa, dan bertindak. Melalui proyek "Jejak Diri", saya belajar melihat permasalahan dari berbagai sudut pandang.
+                </p>
+                <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text-light);">
+                    Bagi saya, mempelajari perilaku manusia merupakan langkah penting untuk menciptakan kehidupan sosial yang lebih bermakna dan membangun hubungan sosial yang sehat.
+                </p>
+                <div style="display: flex; gap: 1rem;">
+                    <span style="border: 1px solid var(--secondary); padding: 0.5rem 1rem; border-radius: 5px; font-size: 0.8rem;">Psikologi</span>
+                    <span style="border: 1px solid var(--secondary); padding: 0.5rem 1rem; border-radius: 5px; font-size: 0.8rem;">Refleksi</span>
                 </div>
-
-                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
-
-                    <h3 class="text-4xl font-bold text-indigo-600 dark:text-indigo-400">50+</h3>
-
-                    <p class="text-gray-500 dark:text-gray-400 mt-2">Penulis Berbakat</p>
-
-                </div>
-
-                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
-
-                    <h3 class="text-4xl font-bold text-indigo-600 dark:text-indigo-400">10+</h3>
-
-                    <p class="text-gray-500 dark:text-gray-400 mt-2">Genre Pilihan</p>
-
-                </div>
-
             </div>
-
-        </section>
-
-        
-
-        <!-- ===== Daftar Rekomendasi Novel ===== -->
-
-        <section id="rekomendasi" class="py-16">
-
-            <div class="text-center mb-12 scroll-animate">
-
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Rekomendasi Pilihan</h2>
-
-                <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">Novel-novel yang akan membawa Anda ke petualangan tak terlupakan.</p>
-
-            </div>
-
-            
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-
-                <!-- Novel Card 1 -->
-
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group scroll-animate">
-
-                    <div class="relative">
-
-                        <img src="https://placehold.co/400x600/6366f1/ffffff?text=Laskar+Pelangi" alt="Cover Laskar Pelangi" class="w-full h-72 object-cover cursor-pointer group-hover:opacity-75 transition-opacity" onclick="openNovelModal(this)">
-
-                        <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-
-                            <i data-lucide="book-open" class="w-12 h-12 text-white"></i>
-
-                        </div>
-
-                    </div>
-
-                    <div class="p-5">
-
-                        <h3 class="text-xl font-bold mb-1">Laskar Pelangi</h3>
-
-                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Andrea Hirata</p>
-
-                        <div class="flex items-center justify-between">
-
-                            <button class="add-to-list-btn text-sm font-medium text-indigo-600 hover:text-indigo-500">Tambah ke Daftar</button>
-
-                            <button class="share-btn flex items-center gap-1 text-gray-500 hover:text-gray-800 dark:hover:text-white">
-
-                                <i data-lucide="share-2" class="w-4 h-4"></i>
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    <div class="novel-data hidden">
-
-                        <div class="sinopsis">Kisah inspiratif tentang perjuangan 10 anak dari keluarga miskin yang bersekolah di sebuah sekolah Muhammadiyah di Belitung yang penuh dengan keterbatasan.</div>
-
-                        <div class="cover-url">https://placehold.co/400x600/6366f1/ffffff?text=Laskar+Pelangi</div>
-
-                    </div>
-
-                </div>
-
-                <!-- Novel Card 2 -->
-
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group scroll-animate" style="transition-delay: 100ms;">
-
-                    <div class="relative">
-
-                        <img src="https://placehold.co/400x600/10b981/ffffff?text=Bumi+Manusia" alt="Cover Bumi Manusia" class="w-full h-72 object-cover cursor-pointer group-hover:opacity-75 transition-opacity" onclick="openNovelModal(this)">
-
-                         <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-
-                            <i data-lucide="book-open" class="w-12 h-12 text-white"></i>
-
-                        </div>
-
-                    </div>
-
-                    <div class="p-5">
-
-                        <h3 class="text-xl font-bold mb-1">Bumi Manusia</h3>
-
-                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Pramoedya Ananta Toer</p>
-
-                        <div class="flex items-center justify-between">
-
-                            <button class="add-to-list-btn text-sm font-medium text-indigo-600 hover:text-indigo-500">Tambah ke Daftar</button>
-
-                            <button class="share-btn flex items-center gap-1 text-gray-500 hover:text-gray-800 dark:hover:text-white">
-
-                                <i data-lucide="share-2" class="w-4 h-4"></i>
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    <div class="novel-data hidden">
-
-                        <div class="sinopsis">Mengisahkan perjalanan Minke, seorang pribumi cerdas di era kolonial, dalam menemukan identitasnya di tengah pergulatan cinta, kekuasaan, dan diskriminasi.</div>
-
-                        <div class="cover-url">https://placehold.co/400x600/10b981/ffffff?text=Bumi+Manusia</div>
-
-                    </div>
-
-                </div>
-
-                <!-- Novel Card 3 -->
-
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group scroll-animate" style="transition-delay: 200ms;">
-
-                     <div class="relative">
-
-                        <img src="https://placehold.co/400x600/f59e0b/ffffff?text=Cantik+Itu+Luka" alt="Cover Cantik Itu Luka" class="w-full h-72 object-cover cursor-pointer group-hover:opacity-75 transition-opacity" onclick="openNovelModal(this)">
-
-                         <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-
-                            <i data-lucide="book-open" class="w-12 h-12 text-white"></i>
-
-                        </div>
-
-                    </div>
-
-                    <div class="p-5">
-
-                        <h3 class="text-xl font-bold mb-1">Cantik Itu Luka</h3>
-
-                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Eka Kurniawan</p>
-
-                         <div class="flex items-center justify-between">
-
-                            <button class="add-to-list-btn text-sm font-medium text-indigo-600 hover:text-indigo-500">Tambah ke Daftar</button>
-
-                            <button class="share-btn flex items-center gap-1 text-gray-500 hover:text-gray-800 dark:hover:text-white">
-
-                                <i data-lucide="share-2" class="w-4 h-4"></i>
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    <div class="novel-data hidden">
-
-                        <div class="sinopsis">Sebuah epik keluarga yang membentang dari masa kolonial hingga kemerdekaan, memadukan sejarah, mitos, dan tragedi dengan gaya realisme magis yang memukau.</div>
-
-                        <div class="cover-url">https://placehold.co/400x600/f59e0b/ffffff?text=Cantik+Itu+Luka</div>
-
-                    </div>
-
-                </div>
-
-                <!-- Novel Card 4 -->
-
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group scroll-animate" style="transition-delay: 300ms;">
-
-                    <div class="relative">
-
-                        <img src="https://placehold.co/400x600/ef4444/ffffff?text=Negeri+5+Menara" alt="Cover Negeri 5 Menara" class="w-full h-72 object-cover cursor-pointer group-hover:opacity-75 transition-opacity" onclick="openNovelModal(this)">
-
-                        <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-
-                            <i data-lucide="book-open" class="w-12 h-12 text-white"></i>
-
-                        </div>
-
-                    </div>
-
-                    <div class="p-5">
-
-                        <h3 class="text-xl font-bold mb-1">Negeri 5 Menara</h3>
-
-                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Ahmad Fuadi</p>
-
-                         <div class="flex items-center justify-between">
-
-                            <button class="add-to-list-btn text-sm font-medium text-indigo-600 hover:text-indigo-500">Tambah ke Daftar</button>
-
-                            <button class="share-btn flex items-center gap-1 text-gray-500 hover:text-gray-800 dark:hover:text-white">
-
-                                <i data-lucide="share-2" class="w-4 h-4"></i>
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    <div class="novel-data hidden">
-
-                        <div class="sinopsis">Kisah persahabatan enam santri dari berbagai daerah di Pondok Madani, yang dipersatukan oleh mimpi dan mantra sakti 'Man Jadda Wajada' (Siapa yang bersungguh-sungguh akan berhasil).</div>
-
-                        <div class="cover-url">https://placehold.co/400x600/ef4444/ffffff?text=Negeri+5+Menara</div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ===== Inspirasi Penulis ===== -->
-
-        <section id="inspirasi" class="py-16 bg-gray-100 dark:bg-gray-800 rounded-2xl scroll-animate">
-
-            <div class="text-center mb-12">
-
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Inspirasi di Balik Karya</h2>
-
-                <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">Mengenal lebih dekat proses kreatif para penulis hebat Indonesia.</p>
-
-            </div>
-
-            <div class="flex flex-col md:flex-row items-center gap-12 max-w-4xl mx-auto">
-
-                <div class="md:w-1/3">
-
-                    <img src="https://placehold.co/400x400/3b82f6/ffffff?text=Penulis" alt="Foto Andrea Hirata" class="rounded-full shadow-2xl w-48 h-48 md:w-64 md:h-64 object-cover mx-auto">
-
-                </div>
-
-                <div class="md:w-2/3 text-center md:text-left">
-
-                    <p class="text-xl italic text-gray-700 dark:text-gray-300">"Menulislah setiap hari, jangan pedulikan bagus atau tidak. Karena dari seratus halaman tulisan jelek, pasti ada satu kalimat yang bagus."</p>
-
-                    <h4 class="text-xl font-bold mt-6 text-gray-900 dark:text-white">Andrea Hirata</h4>
-
-                    <p class="text-gray-500 dark:text-gray-400">Penulis Novel Laskar Pelangi</p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ===== Contact Form & Map ===== -->
-
-        <section id="kontak" class="py-16">
-
-            <div class="text-center mb-12 scroll-animate">
-
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Hubungi Kami</h2>
-
-                <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">Punya pertanyaan, saran, atau rekomendasi novel? Sampaikan kepada kami.</p>
-
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-
-                <!-- Contact Form -->
-
-                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg scroll-animate">
-
-                    <form action="#" method="POST">
-
-                        <div class="mb-4">
-
-                            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nama Anda</label>
-
-                            <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
-
-                        </div>
-
-                        <div class="mb-4">
-
-                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
-
-                            <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
-
-                        </div>
-
-                        <div class="mb-4">
-
-                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Pesan</g_text>
-
-                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500" required></textarea>
-
-                        </div>
-
-                        <button type="submit" class="w-full px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors">Kirim Pesan</button>
-
-                    </form>
-
-                </div>
-
-                <!-- Map Integration -->
-
-                <div class="scroll-animate" style="transition-delay: 100ms;">
-
-                     <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg">
-
-                        <div class="aspect-w-16 aspect-h-9">
-
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.471690550977!2d106.82496417500095!3d-6.20150299378619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f43a9d18c213%3A0x7e524691456c602a!2sNational%20Monument!5e0!3m2!1sen!2sid!4f1728989901309!5m2!1sen!2sid" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg"></iframe>
-
-                        </div>
-
-                    </div>
-
-                    <div class="mt-6 text-gray-600 dark:text-gray-400 text-sm">
-
-                        <p class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-indigo-500"></i> Jl. Sastra No. 123, Jakarta, Indonesia</p>
-
-                        <p class="flex items-center gap-2 mt-2"><i data-lucide="phone" class="w-4 h-4 text-indigo-500"></i> +62 21 1234 5678</p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    
-
-    <!-- ===== Footer ===== -->
-
-    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-16">
-
-        <div class="container mx-auto px-4 py-12">
-
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-
-                <!-- About -->
-
+        </div>
+    </section>
+
+    <!-- 6. Pengalaman Organisasi -->
+    <section id="org" style="background: #f4f1ee;">
+        <div class="section-header">
+            <h2>Pengalaman Organisasi</h2>
+        </div>
+        <div class="org-timeline">
+            <div class="org-item">
                 <div>
-
-                    <h3 class="text-xl font-bold mb-2">Novel<span class="text-indigo-600">ku</span></h3>
-
-                    <p class="text-gray-500 dark:text-gray-400 text-sm">Menemukan dan membagikan kekayaan sastra Indonesia untuk Anda.</p>
-
-                    <div class="flex space-x-4 mt-4">
-
-                        <a href="#" class="text-gray-500 hover:text-indigo-600"><i data-lucide="facebook"></i></a>
-
-                        <a href="#" class="text-gray-500 hover:text-indigo-600"><i data-lucide="twitter"></i></a>
-
-                        <a href="#" class="text-gray-500 hover:text-indigo-600"><i data-lucide="instagram"></i></a>
-
-                    </div>
-
+                    <p class="org-role">Sekretaris Dewan Ambalan Ganeca-Padmnaba</p>
+                    <p style="font-size: 0.9rem;">SMAN 1 Subang</p>
                 </div>
-
-                <!-- Quick Links -->
-
+                <span class="org-year">2024 - 2025</span>
+            </div>
+            <div class="org-item">
                 <div>
-
-                    <h4 class="font-semibold mb-3">Tautan Cepat</h4>
-
-                    <ul class="space-y-2 text-sm">
-
-                        <li><a href="#rekomendasi" class="text-gray-500 dark:text-gray-400 hover:text-indigo-600">Rekomendasi</a></li>
-
-                        <li><a href="#inspirasi" class="text-gray-500 dark:text-gray-400 hover:text-indigo-600">Penulis</a></li>
-
-                        <li><a href="#kontak" class="text-gray-500 dark:text-gray-400 hover:text-indigo-600">Kontak</a></li>
-
-                    </ul>
-
+                    <p class="org-role">Komisi Disiplin Diklat Bantara</p>
                 </div>
-
-                <!-- Legal -->
-
-                 <div>
-
-                    <h4 class="font-semibold mb-3">Legal</h4>
-
-                    <ul class="space-y-2 text-sm">
-
-                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-indigo-600">Kebijakan Privasi</a></li>
-
-                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-indigo-600">Syarat & Ketentuan</a></li>
-
-                    </ul>
-
+                <span class="org-year">2024</span>
+            </div>
+            <div class="org-item">
+                <div>
+                    <p class="org-role">Sekretaris Diklat Talikoor</p>
                 </div>
-
+                <span class="org-year">2024</span>
             </div>
-
-            <div class="mt-12 border-t border-gray-200 dark:border-gray-700 pt-6 text-center text-sm text-gray-500 dark:text-gray-400">
-
-                <p>&copy; 2025 Novelku. All Rights Reserved.</p>
-
+            <div class="org-item">
+                <div>
+                    <p class="org-role">Sie Lapangan PGP PERJUMSA</p>
+                </div>
+                <span class="org-year">2024</span>
             </div>
-
+            <div class="org-item">
+                <div>
+                    <p class="org-role">Anggota Sekbid 2 & 3 OSIS</p>
+                    <p style="font-size: 0.9rem;">SMPN 1 Subang</p>
+                </div>
+                <span class="org-year">2021 - 2023</span>
+            </div>
         </div>
+    </section>
 
+    <!-- 7. Kontak -->
+    <section id="contact">
+        <div class="section-header">
+            <h2>Mari Terhubung</h2>
+        </div>
+        <div class="contact-container">
+            <a href="mailto:dhianyssaivana@gmail.com" class="contact-method">
+                <i data-lucide="mail"></i>
+                <p>Email</p>
+                <small>dhianyssaivana@gmail.com</small>
+            </a>
+            <a href="https://instagram.com/ddhiiav" target="_blank" class="contact-method">
+                <i data-lucide="instagram"></i>
+                <p>Instagram</p>
+                <small>@ddhiiav</small>
+            </a>
+        </div>
+    </section>
+
+    <!-- 8. Footer -->
+    <footer>
+        <div class="brand-name" style="color: var(--white); font-size: 2rem; margin-bottom: 1rem;">Dhia.</div>
+        <p style="margin-bottom: 2rem; opacity: 0.7;">Human mind learner.</p>
+        <div class="footer-socials">
+            <a href="http://instagram.com/ddhiiav" target="_blank"><i data-lucide="instagram"></i></a>
+            <a href="#"><i data-lucide="linkedin"></i></a>
+            <a href="mailto:dhianyssaivana@gmail.com"><i data-lucide="mail"></i></a>
+        </div>
+        <div class="copyright">
+            <p>Hak Cipta &copy; Dhia-2026. All Rights Reserved.</p>
+        </div>
     </footer>
 
-    
-
-    <!-- ===== Sidebar / Floating Elements ===== -->
-
-    <!-- Chatbot / Live Chat -->
-
-    <div id="chatbot-container" class="fixed bottom-5 right-5 z-50">
-
-        <button id="chatbot-toggle" class="w-14 h-14 bg-indigo-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-indigo-700 transition-transform transform hover:scale-110">
-
-            <i data-lucide="message-square" class="w-7 h-7"></i>
-
-        </button>
-
-        <div id="chatbot-window" class="hidden absolute bottom-20 right-0 w-80 bg-white dark:bg-gray-800 rounded-lg shadow-2xl border dark:border-gray-700">
-
-            <div class="p-3 bg-indigo-600 text-white font-semibold rounded-t-lg">Ada yang bisa dibantu?</div>
-
-            <div class="p-4 h-48 overflow-y-auto text-sm">
-
-                <p class="bg-gray-100 dark:bg-gray-700 p-2 rounded-lg">Selamat datang di Novelku! Cari novel apa hari ini?</p>
-
-            </div>
-
-            <div class="p-2 border-t dark:border-gray-700">
-
-                <input type="text" placeholder="Ketik pesan..." class="w-full text-sm p-2 rounded bg-gray-100 dark:bg-gray-700 border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500">
-
-            </div>
-
-        </div>
-
-    </div>
-
-    
-
-    <!-- Modal Sinopsis Novel -->
-
-    <div id="novel-modal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden items-center justify-center p-4">
-
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative animate-fade-in-up">
-
-            <button onclick="closeModal('novel-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:hover:text-white">
-
-                <i data-lucide="x" class="w-6 h-6"></i>
-
-            </button>
-
-            <div class="grid md:grid-cols-3 gap-6 p-6">
-
-                <div class="md:col-span-1">
-
-                    <img id="modal-novel-cover" src="" alt="Cover Novel" class="w-full rounded-lg shadow-md">
-
-                </div>
-
-                <div class="md:col-span-2">
-
-                    <h2 id="modal-novel-title" class="text-3xl font-bold mb-1"></h2>
-
-                    <p id="modal-novel-author" class="text-gray-500 dark:text-gray-400 mb-4"></p>
-
-                    <h4 class="font-semibold mb-2">Sinopsis</h4>
-
-                    <p id="modal-novel-synopsis" class="text-gray-600 dark:text-gray-300"></p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    
-
-    <!-- Modal Video Popup -->
-
-    <div id="video-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden items-center justify-center p-4">
-
-         <div class="bg-black rounded-lg shadow-2xl w-full max-w-3xl relative aspect-video">
-
-             <button onclick="closeModal('video-modal')" class="absolute -top-10 right-0 text-white hover:opacity-75">
-
-                <i data-lucide="x" class="w-8 h-8"></i>
-
-            </button>
-
-            <iframe id="video-iframe" class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-        </div>
-
-    </div>
-
-    <!-- JavaScript -->
-
     <script>
-
-        // Inisialisasi Lucide Icons
-
+        // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Dark/Light Mode Toggle
-
-        const themeToggle = document.getElementById('theme-toggle');
-
-        const html = document.documentElement;
-
-        // Cek tema dari localStorage atau preferensi sistem
-
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-
-            html.classList.add('dark');
-
-        } else {
-
-            html.classList.remove('dark');
-
-        }
-
-        themeToggle.addEventListener('click', () => {
-
-            html.classList.toggle('dark');
-
-            if (html.classList.contains('dark')) {
-
-                localStorage.setItem('theme', 'dark');
-
-            } else {
-
-                localStorage.setItem('theme', 'light');
-
-            }
-
-        });
-
-        
-
-        // Mobile Menu Toggle
-
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-
-            mobileMenu.classList.toggle('hidden');
-
-        });
-
-        // Search Bar Toggle
-
-        const searchBarToggle = document.getElementById('search-bar-toggle');
-
-        const searchBar = document.getElementById('search-bar');
-
-        searchBarToggle.addEventListener('click', () => {
-
-            searchBar.classList.toggle('hidden');
-
-        });
-
-        
-
-        // Chatbot Toggle
-
-        const chatbotToggle = document.getElementById('chatbot-toggle');
-
-        const chatbotWindow = document.getElementById('chatbot-window');
-
-        chatbotToggle.addEventListener('click', () => {
-
-            chatbotWindow.classList.toggle('hidden');
-
-        });
-
-        // "Tambah ke Daftar Bacaan" Button
-
-        document.querySelectorAll('.add-to-list-btn').forEach(button => {
-
-            button.addEventListener('click', () => {
-
-                button.textContent = '✔ Ditambahkan';
-
-                button.disabled = true;
-
-                button.classList.add('text-green-600');
-
-            });
-
-        });
-
-        // Modal Logic
-
-        const novelModal = document.getElementById('novel-modal');
-
-        const videoModal = document.getElementById('video-modal');
-
-        const videoIframe = document.getElementById('video-iframe');
-
-        const originalVideoSrc = videoIframe.src;
-
-        function openModal(id) {
-
-            const modal = document.getElementById(id);
-
-            if(modal) {
-
-                modal.classList.remove('hidden');
-
-                modal.classList.add('flex');
-
-            }
-
-        }
-
-        
-
-        function closeModal(id) {
-
-            const modal = document.getElementById(id);
-
-            if(modal) {
-
-                modal.classList.remove('flex');
-
-                modal.classList.add('hidden');
-
-                // Hentikan video YouTube saat modal ditutup
-
-                if (id === 'video-modal') {
-
-                    videoIframe.src = originalVideoSrc;
-
-                }
-
-            }
-
-        }
-
-        
-
-        // Buka Video Popup
-
-        document.getElementById('video-popup-button').addEventListener('click', () => openModal('video-modal'));
-
-        
-
-        // Buka & Isi data Modal Sinopsis
-
-        function openNovelModal(element) {
-
-            const card = element.closest('.group');
-
-            const dataContainer = card.querySelector('.novel-data');
-
-            
-
-            const title = card.querySelector('h3').textContent;
-
-            const author = card.querySelector('p').textContent;
-
-            const synopsis = dataContainer.querySelector('.sinopsis').textContent;
-
-            const coverUrl = dataContainer.querySelector('.cover-url').textContent;
-
-            document.getElementById('modal-novel-title').textContent = title;
-
-            document.getElementById('modal-novel-author').textContent = author;
-
-            document.getElementById('modal-novel-synopsis').textContent = synopsis;
-
-            document.getElementById('modal-novel-cover').src = coverUrl;
-
-            
-
-            openModal('novel-modal');
-
-        }
-
-        
-
-        // Tutup modal saat klik di luar area kontennya
-
-        window.addEventListener('click', (event) => {
-
-            if (event.target === novelModal) closeModal('novel-modal');
-
-            if (event.target === videoModal) closeModal('video-modal');
-
-        });
-
-        // Scroll Animation Logic
-
-        const scrollAnimateElements = document.querySelectorAll('.scroll-animate');
-
-        
+        // Smooth reveal on scroll (simple implementation)
+        const observerOptions = {
+            threshold: 0.1
+        };
 
         const observer = new IntersectionObserver((entries) => {
-
             entries.forEach(entry => {
-
                 if (entry.isIntersecting) {
-
-                    entry.target.classList.add('is-visible');
-
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
-
             });
+        }, observerOptions);
 
-        }, {
-
-            threshold: 0.1
-
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'all 0.8s ease-out';
+            observer.observe(section);
         });
-
-        scrollAnimateElements.forEach(el => {
-
-            observer.observe(el);
-
-        });
-
     </script>
-
 </body>
-
 </html>
-
